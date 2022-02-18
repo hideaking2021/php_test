@@ -2,16 +2,15 @@
 
 require('../app/functions.php');
 
-// $color = filter_input(INPUT_GET, 'color');
-// $color = isset($color) ? $color : 'None selected';
-// $color = $color ?? 'None selected';
-$color = filter_input(INPUT_GET, 'color') ?? 'None selected';
+
+$colorFromGet = filter_input(INPUT_GET, 'color') ?? 'transparent';
+setcookie('color' , $colorFromGet);
 
 include('../app/_parts/_header.php');
 
 ?>
 
-<p><?= h($color); ?></p>
+<p><?= h($colorFromGet); ?></p>
 <p><a href="index.php">Go back</a></p>
 
 <?php
